@@ -11,7 +11,7 @@ import java.util.List;
 
 
 
-public class parkService implements parkServiceI {
+public class ParkService implements ParkServiceI {
 
     private ParkRepository parkRepository= new ParkRepository();
     @Override

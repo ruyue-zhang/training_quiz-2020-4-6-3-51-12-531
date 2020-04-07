@@ -1,17 +1,19 @@
 package Controllers;
 
-import services.parkService;
+import entities.Park;
+import services.ParkService;
 
 public class parkController {
-    public static void init(String initInfo) {
-
+    private ParkService parkService = new ParkService();
+    public void init(String initInfo) {
+        parkService.init(initInfo);
     }
 
-    public static String park(String carNumber) {
-        return "";
+    public Park park(String carNumber) {
+        return parkService.park(carNumber);
     }
 
-    public static String fetch(String ticket) {
-        return "";
+    public String fetch(String ticket) {
+        return parkService.fetch(ticket);
     }
 }
