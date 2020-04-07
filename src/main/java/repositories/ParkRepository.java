@@ -1,14 +1,16 @@
 package repositories;
 
 import entities.Park;
-
 import java.sql.Connection;
 import java.util.List;
 
 public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
     @Override
-    public int initPark(Connection conn, List<Park> parkList) {
-        return 0;
+    public void initPark(Connection conn, List<Park> parkList) {
+        for (Park park : parkList) {
+            String sql = "insert into park(id,ParkingSpace) values(?,?)";
+            update(conn,sql,park.getId(),park.getParkingSpace());
+        }
     }
 
     @Override
