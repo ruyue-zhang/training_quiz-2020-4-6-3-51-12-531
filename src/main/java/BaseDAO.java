@@ -48,4 +48,22 @@ public class BaseDAO<T> {
         }
         return null;
     }
+
+
+    public int update(Connection conn, String sql, Object...args) {
+        PreparedStatement pstm = null;
+        try {
+            pstm = conn.prepareStatement(sql);
+            for (int i = 0; i < args.length; i++) {
+                pstm.setObject(i + 1, args[i]);
+            }
+            return pstm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.releaseSource(pstm, null);
+        }
+        return 0;
+    }
+
 }
