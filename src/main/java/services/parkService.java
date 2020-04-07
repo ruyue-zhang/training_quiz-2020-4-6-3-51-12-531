@@ -37,7 +37,17 @@ public class parkService implements parkServiceI {
     }
 
     @Override
-    public String park(String carNumber) {
+    public Park park(String carNumber) {
+        Connection conn = null;
+        try {
+            conn = JDBCUtils.getConnection();
+            parkRepository.updateLicenseNumber(conn, carNumber);
+            return parkRepository.selectByLicenseNumber(conn, carNumber);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.releaseSource(null, conn);
+        }
         return null;
     }
 

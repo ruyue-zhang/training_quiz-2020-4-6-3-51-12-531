@@ -1,7 +1,9 @@
 package services;
 
+import entities.Park;
+
 public interface parkServiceI {
     void init(String initInfo);
-    String park(String carNumber);
+    Park park(String carNumber);
     String fetch(String ticket);
 }
