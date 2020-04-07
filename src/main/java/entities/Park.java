@@ -45,10 +45,6 @@ public class Park {
 
     @Override
     public String toString() {
-        return "Park{" +
-                "id=" + id +
-                ", ParkingSpace='" + ParkingSpace + '\'' +
-                ", licenseNumber='" + licenseNumber + '\'' +
-                '}';
+        return  id + "," + ParkingSpace + "," + licenseNumber;
     }
 }
