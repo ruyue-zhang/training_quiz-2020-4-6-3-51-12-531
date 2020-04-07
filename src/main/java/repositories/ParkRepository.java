@@ -27,7 +27,8 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
 
     @Override
     public int emptyLicenseNumberByLicenseNumber(Connection conn, String licenseNumber) {
-        return 0;
+        String sql = "update park set license_number = null where license_number = ?";
+        return update(conn,sql,licenseNumber);
     }
 
     @Override
