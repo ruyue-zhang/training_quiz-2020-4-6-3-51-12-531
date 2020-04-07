@@ -21,7 +21,7 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
 
     @Override
     public Park selectByLicenseNumber(Connection conn, String licenseNumber) {
-        String sql = "select (id,parking_space,license_number) from park where license_number = licenseNumber";
+        String sql = "select id,parking_space parkingSpace,license_number licenseNumber from park where license_number = licenseNumber";
         return query(conn,sql);
     }
 
@@ -32,7 +32,8 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
     }
 
     @Override
-    public int selectByPark(Connection conn, Park park) {
-        return 0;
+    public Park selectByPark(Connection conn, Park park) {
+        String sql = "select id,parking_space parkingSpace,license_number licenseNumber from park where id = ? and parking_space = ? and license_number = ?";
+        return query(conn,sql,park.getId(),park.getParkingSpace(),park.getLicenseNumber());
     }
 }

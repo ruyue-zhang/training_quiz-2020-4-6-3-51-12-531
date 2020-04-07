@@ -10,5 +10,5 @@ public interface ParkRepositoryI {
     int updateLicenseNumber(Connection conn, String licenseNumber);
     Park selectByLicenseNumber(Connection conn, String licenseNumber);
     int emptyLicenseNumberByLicenseNumber(Connection conn, String licenseNumber);
-    int selectByPark(Connection conn, Park park);
+    Park selectByPark(Connection conn, Park park);
 }
