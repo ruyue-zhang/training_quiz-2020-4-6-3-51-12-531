@@ -2,7 +2,7 @@ package entities;
 
 public class Park {
     private int id;
-    private String ParkingSpace;
+    private String parkingSpace;
     private String licenseNumber;
 
     public Park() {
@@ -10,12 +10,12 @@ public class Park {
 
     public Park(int id, String parkingSpace) {
         this.id = id;
-        ParkingSpace = parkingSpace;
+        this.parkingSpace = parkingSpace;
     }
 
     public Park(int id, String parkingSpace, String licenseNumber) {
         this.id = id;
-        ParkingSpace = parkingSpace;
+        this.parkingSpace = parkingSpace;
         this.licenseNumber = licenseNumber;
     }
 
@@ -28,11 +28,11 @@ public class Park {
     }
 
     public String getParkingSpace() {
-        return ParkingSpace;
+        return parkingSpace;
     }
 
     public void setParkingSpace(String parkingSpace) {
-        ParkingSpace = parkingSpace;
+        this.parkingSpace = parkingSpace;
     }
 
     public String getLicenseNumber() {
@@ -45,6 +45,6 @@ public class Park {
 
     @Override
     public String toString() {
-        return  id + "," + ParkingSpace + "," + licenseNumber;
+        return  id + "," + parkingSpace + "," + licenseNumber;
     }
 }
