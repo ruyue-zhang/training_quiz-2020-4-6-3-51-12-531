@@ -1,3 +1,5 @@
+package repositories;
+
 import Utils.JDBCUtils;
 
 import java.lang.reflect.Field;
@@ -8,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
-public class BaseDAO<T> {
+public abstract class BaseDAO<T> {
     private Class<T> clazz = null;
 
     {
