@@ -1,7 +1,10 @@
+import controllers.ParkController;
+import entities.Park;
+
 import java.util.Scanner;
 
 public class Application {
-
+  private static ParkController parkController = new ParkController();
   public static void main(String[] args) {
     operateParking();
   }
@@ -42,15 +45,18 @@ public class Application {
   }
 
   public static void init(String initInfo) {
-
+    parkController.init(initInfo);
   }
 
   public static String park(String carNumber) {
-    return "";
+    Park park = parkController.park(carNumber);
+    return "已将您的车牌号为"+park.getLicenseNumber()+"的车辆停到"+park.getParkingSpace()+"停车场"+park.getId()+"号车位，" +
+            "停车券为："+park.toString()+"，请您妥善保存！";
   }
 
   public static String fetch(String ticket) {
-    return "";
+    String carNumber = parkController.fetch(ticket);
+    return "已为您取到车牌号为"+ carNumber +"的车辆，很高兴为您服务，祝您生活愉快！";
   }
 
 }

@@ -1,9 +1,9 @@
-package Controllers;
+package controllers;
 
 import entities.Park;
 import services.ParkService;
 
-public class parkController {
+public class ParkController {
     private ParkService parkService = new ParkService();
     public void init(String initInfo) {
         parkService.init(initInfo);
