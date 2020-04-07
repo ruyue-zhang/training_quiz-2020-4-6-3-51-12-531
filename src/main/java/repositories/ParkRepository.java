@@ -3,10 +3,11 @@ package repositories;
 import entities.Park;
 
 import java.sql.Connection;
+import java.util.List;
 
 public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
     @Override
-    public int initPark(Connection conn, Park park) {
+    public int initPark(Connection conn, List<Park> parkList) {
         return 0;
     }
 
