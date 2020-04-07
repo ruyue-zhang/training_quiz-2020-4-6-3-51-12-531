@@ -50,8 +50,9 @@ public class Application {
 
   public static String park(String carNumber) {
     Park park = parkController.park(carNumber);
-    return "已将您的车牌号为"+park.getLicenseNumber()+"的车辆停到"+park.getParkingSpace()+"停车场"+park.getId()+"号车位，" +
-            "停车券为："+park.toString()+"，请您妥善保存！";
+    return park.toString();
+//    return "已将您的车牌号为"+park.getLicenseNumber()+"的车辆停到"+park.getParkingSpace()+"停车场"+park.getId()+"号车位，" +
+//            "停车券为："+park.toString()+"，请您妥善保存！";
   }
 
   public static String fetch(String ticket) {

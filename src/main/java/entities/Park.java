@@ -45,6 +45,6 @@ public class Park {
 
     @Override
     public String toString() {
-        return  id + "," + parkingSpace + "," + licenseNumber;
+        return  parkingSpace + "," + id + "," + licenseNumber;
     }
 }
