@@ -8,7 +8,7 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
     @Override
     public void initPark(Connection conn, List<Park> parkList) {
         for (Park park : parkList) {
-            String sql = "insert into park(id,ParkingSpace) values(?,?)";
+            String sql = "insert into park(id,Parking_space) values(?,?)";
             update(conn,sql,park.getId(),park.getParkingSpace());
         }
     }

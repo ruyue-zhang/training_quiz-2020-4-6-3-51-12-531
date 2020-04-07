@@ -8,6 +8,11 @@ public class Park {
     public Park() {
     }
 
+    public Park(int id, String parkingSpace) {
+        this.id = id;
+        ParkingSpace = parkingSpace;
+    }
+
     public Park(int id, String parkingSpace, String licenseNumber) {
         this.id = id;
         ParkingSpace = parkingSpace;
