@@ -16,7 +16,7 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
     @Override
     public int updateLicenseNumber(Connection conn, String licenseNumber) {
         String sql = "update park set license_number = ? where license_number is null limit 1";
-        return update(conn,licenseNumber);
+        return update(conn,sql,licenseNumber);
     }
 
     @Override
@@ -26,14 +26,20 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
     }
 
     @Override
-    public int emptyLicenseNumberByLicenseNumber(Connection conn, String licenseNumber) {
-        String sql = "update park set license_number = null where license_number = ?";
-        return update(conn,sql,licenseNumber);
+    public int emptyLicenseNumberByIdAndParkingSpace(Connection conn, int id, String parkingSpace) {
+        String sql = "update park set license_number = null where id = ? and parking_space = ?";
+        return update(conn,sql,id,parkingSpace);
     }
 
     @Override
     public Park selectByPark(Connection conn, Park park) {
         String sql = "select id,parking_space parkingSpace,license_number licenseNumber from park where id = ? and parking_space = ? and license_number = ?";
         return query(conn,sql,park.getId(),park.getParkingSpace(),park.getLicenseNumber());
+    }
+
+    @Override
+    public void deleteAll(Connection conn) {
+        String sql = "delete from park";
+        update(conn,sql);
     }
 }

@@ -2,6 +2,7 @@ package services;
 
 import Utils.JDBCUtils;
 import entities.Park;
+import exception.ParkingLotFullException;
 import repositories.ParkRepository;
 
 import java.sql.Connection;
@@ -28,6 +29,7 @@ public class ParkService implements ParkServiceI {
         }
         try {
             conn = JDBCUtils.getConnection();
+            parkRepository.deleteAll(conn);
             parkRepository.initPark(conn,parkList);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,7 +43,10 @@ public class ParkService implements ParkServiceI {
         Connection conn = null;
         try {
             conn = JDBCUtils.getConnection();
-            parkRepository.updateLicenseNumber(conn, carNumber);
+            int result = parkRepository.updateLicenseNumber(conn, carNumber);
+            if(result == 0) {
+                throw new ParkingLotFullException(" 非常抱歉，由于车位已满，暂时无法为您停车！");
+            }
             return parkRepository.selectByLicenseNumber(conn, carNumber);
         } catch (SQLException e) {
             e.printStackTrace();
