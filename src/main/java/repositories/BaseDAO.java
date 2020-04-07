@@ -67,5 +67,4 @@ public abstract class BaseDAO<T> {
         }
         return 0;
     }
-
 }
