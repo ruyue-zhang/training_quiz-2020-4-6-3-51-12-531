@@ -15,26 +15,26 @@ public class ParkRepository extends BaseDAO<Park> implements ParkRepositoryI  {
 
     @Override
     public int updateLicenseNumber(Connection conn, String licenseNumber) {
-        String sql = "update park set license_number = ? where license_number is null limit 1";
+        String sql = "update park set car_number = ? where car_number is null limit 1";
         return update(conn,sql,licenseNumber);
     }
 
     @Override
     public Park selectByLicenseNumber(Connection conn, String licenseNumber) {
-        String sql = "select id,parking_space parkingSpace,license_number licenseNumber from park where license_number = ?";
+        String sql = "select id,parking_space parkingSpace,car_number carNumber from park where car_number = ?";
         return query(conn,sql,licenseNumber);
     }
 
     @Override
-    public int emptyLicenseNumberByIdAndParkingSpace(Connection conn, int id, String parkingSpace) {
-        String sql = "update park set license_number = null where id = ? and parking_space = ?";
-        return update(conn,sql,id,parkingSpace);
+    public void emptyLicenseNumberByIdAndParkingSpace(Connection conn, int id, String parkingSpace) {
+        String sql = "update park set car_number = null where id = ? and parking_space = ?";
+        update(conn,sql,id,parkingSpace);
     }
 
     @Override
     public Park selectByPark(Connection conn, Park park) {
-        String sql = "select id,parking_space parkingSpace,license_number licenseNumber from park where id = ? and parking_space = ? and license_number = ?";
-        return query(conn,sql,park.getId(),park.getParkingSpace(),park.getLicenseNumber());
+        String sql = "select id,parking_space parkingSpace,car_number carNumber from park where id = ? and parking_space = ? and car_number = ?";
+        return query(conn,sql,park.getId(),park.getParkingSpace(),park.getCarNumber());
     }
 
     @Override

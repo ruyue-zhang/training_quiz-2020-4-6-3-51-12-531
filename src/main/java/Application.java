@@ -50,7 +50,7 @@ public class Application {
 
   public static String park(String carNumber) {
     Park park = parkController.park(carNumber);
-    System.out.println("已将您的车牌号为" + park.getLicenseNumber() + "的车辆停到" + park.getParkingSpace() + "停车场" + park.getId() + "号车位，" +
+    System.out.println("已将您的车牌号为" + park.getCarNumber() + "的车辆停到" + park.getParkingSpace() + "停车场" + park.getId() + "号车位，" +
             "停车券为：" + park.toString() + "，请您妥善保存！");
     return park.toString();
 

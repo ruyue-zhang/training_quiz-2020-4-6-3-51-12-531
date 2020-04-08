@@ -1,7 +1,6 @@
 package controllers;
 
 import entities.Park;
-import exception.ParkingLotFullException;
 import services.ParkService;
 
 public class ParkController {

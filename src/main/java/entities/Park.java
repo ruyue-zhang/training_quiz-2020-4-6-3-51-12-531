@@ -3,7 +3,7 @@ package entities;
 public class Park {
     private int id;
     private String parkingSpace;
-    private String licenseNumber;
+    private String carNumber;
 
     public Park() {
     }
@@ -16,35 +16,23 @@ public class Park {
     public Park(int id, String parkingSpace, String licenseNumber) {
         this.id = id;
         this.parkingSpace = parkingSpace;
-        this.licenseNumber = licenseNumber;
+        this.carNumber = licenseNumber;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getParkingSpace() {
         return parkingSpace;
     }
 
-    public void setParkingSpace(String parkingSpace) {
-        this.parkingSpace = parkingSpace;
-    }
-
-    public String getLicenseNumber() {
-        return licenseNumber;
-    }
-
-    public void setLicenseNumber(String licenseNumber) {
-        this.licenseNumber = licenseNumber;
+    public String getCarNumber() {
+        return carNumber;
     }
 
     @Override
     public String toString() {
-        return  parkingSpace + "," + id + "," + licenseNumber;
+        return  parkingSpace + "," + id + "," + carNumber;
     }
 }
