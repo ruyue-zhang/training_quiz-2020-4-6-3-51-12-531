@@ -2,6 +2,7 @@ package services;
 
 import Utils.JDBCUtils;
 import entities.Park;
+import exception.InvalidTicketException;
 import exception.ParkingLotFullException;
 import repositories.ParkRepository;
 
@@ -63,7 +64,11 @@ public class ParkService implements ParkServiceI {
         Park park = new Park(Integer.parseInt(split[1]), split[0], split[2]);
         try {
             conn = JDBCUtils.getConnection();
-            return parkRepository.selectByPark(conn, park).getLicenseNumber();
+            Park returnPark = parkRepository.selectByPark(conn, park);
+            if(returnPark == null) {
+                throw new InvalidTicketException("很抱歉，无法通过您提供的停车券为您找到相应的车辆，请您再次核对停车券是否有效！ ");
+            }
+            return returnPark.getLicenseNumber();
         } catch (SQLException e) {
             e.printStackTrace();
         }
