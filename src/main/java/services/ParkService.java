@@ -44,11 +44,11 @@ public class ParkService implements ParkServiceI {
         Connection conn = null;
         try {
             conn = JDBCUtils.getConnection();
-            int result = parkRepository.updateLicenseNumber(conn, carNumber);
+            int result = parkRepository.updateCarNumber(conn, carNumber);
             if(result == 0) {
                 throw new ParkingLotFullException(" 非常抱歉，由于车位已满，暂时无法为您停车！");
             }
-            return parkRepository.selectByLicenseNumber(conn, carNumber);
+            return parkRepository.selectByCarNumber(conn, carNumber);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -68,7 +68,7 @@ public class ParkService implements ParkServiceI {
             if(returnPark == null) {
                 throw new InvalidTicketException("很抱歉，无法通过您提供的停车券为您找到相应的车辆，请您再次核对停车券是否有效！ ");
             }
-            parkRepository.emptyLicenseNumberByIdAndParkingSpace(conn,returnPark.getId(),returnPark.getParkingSpace());
+            parkRepository.emptyCarNumberByIdAndParkingSpace(conn,returnPark.getId(),returnPark.getParkingSpace());
             return returnPark.getCarNumber();
         } catch (SQLException e) {
             e.printStackTrace();

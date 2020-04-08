@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ParkRepositoryI {
     void initPark(Connection conn, List<Park> parkList);
-    int updateLicenseNumber(Connection conn, String licenseNumber);
-    Park selectByLicenseNumber(Connection conn, String licenseNumber);
-    void emptyLicenseNumberByIdAndParkingSpace(Connection conn, int id, String parkingSpace);
+    int updateCarNumber(Connection conn, String carNumber);
+    Park selectByCarNumber(Connection conn, String carNumber);
+    void emptyCarNumberByIdAndParkingSpace(Connection conn, int id, String parkingSpace);
     Park selectByPark(Connection conn, Park park);
     void deleteAll(Connection conn);
 }
