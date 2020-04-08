@@ -59,7 +59,7 @@ public class ParkService implements ParkServiceI {
 
     @Override
     public String fetch(String ticket) {
-        Connection conn = null;
+        Connection conn;
         String[] split = ticket.split(",");
         Park park = new Park(Integer.parseInt(split[1]), split[0], split[2]);
         try {

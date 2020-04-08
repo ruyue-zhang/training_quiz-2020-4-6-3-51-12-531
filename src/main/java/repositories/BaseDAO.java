@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
 public abstract class BaseDAO<T> {
-    private Class<T> clazz = null;
+    private Class<T> clazz;
 
     {
         Type genericSuperclass = this.getClass().getGenericSuperclass();
